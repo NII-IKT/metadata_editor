@@ -1,0 +1,4 @@
+c:\users\user-1\documents\visual studio 2013\Projects\MetadataLibrary\MetadataLibrary\bin\Debug\MetadataLibrary.dll
+c:\users\user-1\documents\visual studio 2013\Projects\MetadataLibrary\MetadataLibrary\bin\Debug\MetadataLibrary.pdb
+c:\users\user-1\documents\visual studio 2013\Projects\MetadataLibrary\MetadataLibrary\obj\Debug\MetadataLibrary.dll
+c:\users\user-1\documents\visual studio 2013\Projects\MetadataLibrary\MetadataLibrary\obj\Debug\MetadataLibrary.pdb
