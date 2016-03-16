@@ -39,7 +39,7 @@ namespace MetadataLibrary
             EncoderParameters EncoderParams = new EncoderParameters(2);
             EncoderParams.Param[0] = new EncoderParameter(System.Drawing.Imaging.Encoder.Compression, (Int64)EncoderValue.CompressionNone);//TODO решить со сжатием
             EncoderParams.Param[1] = new EncoderParameter(System.Drawing.Imaging.Encoder.Quality, 100L);
-            
+
             //string newfile = openFileDialog1.FileName.Replace(openFileDialog1.SafeFileName, "") + "Clear_" + openFileDialog1.SafeFileName;
             //if (System.IO.File.Exists(newfile))
             //{
@@ -47,12 +47,12 @@ namespace MetadataLibrary
             //}
 
             //для удаоние файла нужно удалить img а в енм хранится картинка
-            
+
             //HACK болт, но иначе не работает нашел здесь: http://stackoverflow.com/questions/19460149/c-sharp-remove-property-tag-items-from-tif-file 
             img.RotateFlip(RotateFlipType.Rotate180FlipNone);
             img.RotateFlip(RotateFlipType.Rotate180FlipNone);
 
-            img.Save(pathFile+".tmp", Encoder, EncoderParams);
+            img.Save(pathFile + ".tmp", Encoder, EncoderParams);
             img.Dispose();
 
             //к сожалению, после освобождения объекта sourceImg через Dispose файл pathFile нельзя удалить.
@@ -130,17 +130,17 @@ namespace MetadataLibrary
             return new Hashtable();
         }
 
-        public Dictionary<string,string> ReadAll(string pathFile)//TODO нехороший метод
+        public Dictionary<string, string> ReadAll(string pathFile)//TODO нехороший метод
         {
             Dictionary<string, string> res = new Dictionary<string, string>();
             MetadataLibrary.ImageInfo.Info info = new ImageInfo.Info(pathFile);
-            res.Add("PixXDim", info.PixXDim == 1123456789 ? "n/a" : info.PixXDim.ToString());
-            res.Add("PixYDim", info.PixYDim == 1123456789? "n/a" :info.PixYDim.ToString());
-            res.Add("EquipModel", String.Copy(info.EquipModel));
-            res.Add("EquipMake", String.Copy(info.EquipMake));
-            res.Add("Copyright", String.Copy(info.Copyright));
-            res.Add("DateTime", String.Copy(info.DateTime));
-            res.Add("ISOSpeed", info.ISOSpeed == 12345 ? "n/a" : info.ISOSpeed.ToString());
+            //res.Add("PixXDim", info.PixXDim == 1123456789 ? "n/a" : info.PixXDim.ToString());
+            //res.Add("PixYDim", info.PixYDim == 1123456789? "n/a" :info.PixYDim.ToString());
+            //res.Add("EquipModel", String.Copy(info.EquipModel));
+            //res.Add("EquipMake", String.Copy(info.EquipMake));
+            //res.Add("Copyright", String.Copy(info.Copyright));
+            //res.Add("DateTime", String.Copy(info.DateTime));
+            //res.Add("ISOSpeed", info.ISOSpeed == 12345 ? "n/a" : info.ISOSpeed.ToString());
             info.Image.Dispose();
             return res;
         }
@@ -162,21 +162,21 @@ namespace MetadataLibrary
         /// <param name="pathFileImg">Путь до файла</param>
         /// <returns>Тип mime в типе стринг</returns>
         private string GetMimeType(string pathFileImg)
-        {            
+        {
             var file = Path.GetFileName(pathFileImg).ToLower().Split('.');
             switch (file[file.LongLength - 1])
             {
                 case "gif": return "image/gif";
-                case "png": return "image/png";                
-                case "bmp": return "image/bmp";                
+                case "png": return "image/png";
+                case "bmp": return "image/bmp";
                 case "dib": return "image/bmp";
-                case "jpe": return "image/jpeg";                 
-                case "jpg": return "image/jpeg";                 
-                case "jpeg":return "image/jpeg";                  
-                case "jfif": return "image/jpeg";           
-                case "tif": return "image/tiff";                  
-                case "tiff": return "image/tiff";                  
-                default: return "ups_not_mime_type"; 
+                case "jpe": return "image/jpeg";
+                case "jpg": return "image/jpeg";
+                case "jpeg": return "image/jpeg";
+                case "jfif": return "image/jpeg";
+                case "tif": return "image/tiff";
+                case "tiff": return "image/tiff";
+                default: return "ups_not_mime_type";
             }
         }
 

@@ -2,3 +2,4 @@ c:\users\user-1\documents\visual studio 2013\Projects\MetadataLibrary\MetadataLi
 c:\users\user-1\documents\visual studio 2013\Projects\MetadataLibrary\MetadataLibrary\bin\Debug\MetadataLibrary.pdb
 c:\users\user-1\documents\visual studio 2013\Projects\MetadataLibrary\MetadataLibrary\obj\Debug\MetadataLibrary.dll
 c:\users\user-1\documents\visual studio 2013\Projects\MetadataLibrary\MetadataLibrary\obj\Debug\MetadataLibrary.pdb
+C:\Users\User-1\Documents\Visual Studio 2013\Projects\MetadataLibrary\MetadataLibrary\obj\Debug\MetadataLibrary.csprojResolveAssemblyReference.cache

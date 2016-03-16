@@ -25,6 +25,7 @@ namespace MetadataLibrary.ImageInfo
         /// <param name="imageFileName">A string specifiing image file name on a file system.</param>
         public Info(string imageFileName)
         {
+            _imageFileName = imageFileName;
             _image = System.Drawing.Image.FromFile(imageFileName);
         }
 
@@ -36,6 +37,7 @@ namespace MetadataLibrary.ImageInfo
         }
 
         System.Drawing.Image _image;
+        string _imageFileName;
         ///<summary>Sets or returns the current Image object.</summary>
         public System.Drawing.Image Image
         {
@@ -76,7 +78,7 @@ namespace MetadataLibrary.ImageInfo
                     object tmpValue = PropertyTag.getValue(_image.GetPropertyItem((int)PropertyTagId.ExifPixYDim));
                     if (tmpValue.GetType().ToString().Equals("System.UInt16")) return (uint)(ushort)tmpValue;
                     return (uint)tmpValue;
-                }               
+                }
                 catch
                 {
                     return null;
@@ -165,13 +167,17 @@ namespace MetadataLibrary.ImageInfo
             get
             {
                 try
-                { 
-                return (string)PropertyTag.getValue(_image.GetPropertyItem((int)PropertyTagId.EquipMake));
+                {
+                    return (string)PropertyTag.getValue(_image.GetPropertyItem((int)PropertyTagId.EquipMake));
                 }
                 catch
                 {
                     return null;
                 }
+            }
+            set
+            {
+                SetValue(value, (int)PropertyTagId.EquipMake);
             }
         }
 
@@ -183,13 +189,17 @@ namespace MetadataLibrary.ImageInfo
             get
             {
                 try
-                { 
-                return (string)PropertyTag.getValue(_image.GetPropertyItem((int)PropertyTagId.EquipModel));
+                {
+                    return (string)PropertyTag.getValue(_image.GetPropertyItem((int)PropertyTagId.EquipModel));
                 }
                 catch
                 {
                     return null;
                 }
+            }
+            set
+            {
+                SetValue(value, (int)PropertyTagId.EquipModel);
             }
         }
 
@@ -201,8 +211,8 @@ namespace MetadataLibrary.ImageInfo
             get
             {
                 try
-                { 
-                return (string)PropertyTag.getValue(_image.GetPropertyItem((int)PropertyTagId.Copyright));
+                {
+                    return (string)PropertyTag.getValue(_image.GetPropertyItem((int)PropertyTagId.Copyright));
                 }
                 catch
                 {
@@ -224,14 +234,20 @@ namespace MetadataLibrary.ImageInfo
             get
             {
                 try
-                { 
-                return (string)PropertyTag.getValue(_image.GetPropertyItem((int)PropertyTagId.DateTime));
+                {
+                    return (string)PropertyTag.getValue(_image.GetPropertyItem((int)PropertyTagId.DateTime));
                 }
                 catch
                 {
                     return null;
                 }
             }
+
+            set
+            {
+                SetValue(value, (int)PropertyTagId.DateTime);
+            }
+
         }
 
         //The format is YYYY:MM:DD HH:MM:SS with time shown in 24-hour format and the date and time separated by one blank character (0x2000). The character string length is 20 bytes including the NULL terminator. When the field is empty, it is treated as unknown.
@@ -265,6 +281,12 @@ namespace MetadataLibrary.ImageInfo
                     return null;
                 }
             }
+
+            set
+            {
+                SetValue(value, (int)PropertyTagId.ExifDTOrig);
+            }
+
         }
 
         ///<summary>
@@ -284,6 +306,11 @@ namespace MetadataLibrary.ImageInfo
                     return null;
                 }
             }
+
+            set
+            {
+                SetValue(value, (int)PropertyTagId.ExifDTDigitized);
+            }
         }
 
 
@@ -295,19 +322,18 @@ namespace MetadataLibrary.ImageInfo
             get
             {
                 try
-                { 
-                return (ushort)PropertyTag.getValue(_image.GetPropertyItem((int)PropertyTagId.ExifISOSpeed));
+                {
+                    return (ushort)PropertyTag.getValue(_image.GetPropertyItem((int)PropertyTagId.ExifISOSpeed));
                 }
                 catch
                 {
                     return null;
                 }
             }
-            //TODO реализоовать
-            //set
-            //{
-            //    SetValue(value, (int)PropertyTagId.ExifISOSpeed);
-            //}
+            set
+            {
+                SetValue(value, (int)PropertyTagId.ExifISOSpeed);
+            }
         }
 
         ///<summary>
@@ -400,6 +426,200 @@ namespace MetadataLibrary.ImageInfo
             }
         }
 
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+        public string ImageDescription
+        {
+            get
+            {
+                try
+                {
+                    return (string)PropertyTag.getValue(_image.GetPropertyItem((int)PropertyTagId.ImageDescription));
+                }
+                catch
+                {
+                    return null;
+                }
+            }
+            set
+            {
+                SetValue(value, (int)PropertyTagId.ImageDescription);
+            }
+        }
+
+        public string SoftwareUsed
+        {
+            get
+            {
+                try
+                {
+                    return (string)PropertyTag.getValue(_image.GetPropertyItem((int)PropertyTagId.SoftwareUsed));
+                }
+                catch
+                {
+                    return null;
+                }
+            }
+            set
+            {
+                SetValue(value, (int)PropertyTagId.SoftwareUsed);
+            }
+        }
+
+        public string Artist
+        {
+            get
+            {
+                try
+                {
+                    return (string)PropertyTag.getValue(_image.GetPropertyItem((int)PropertyTagId.Artist));
+                }
+                catch
+                {
+                    return null;
+                }
+            }
+            set
+            {
+                SetValue(value, (int)PropertyTagId.Artist);
+            }
+        }
+
+        public string ExifDTSubsec
+        {
+            get
+            {
+                try
+                {
+                    return (string)PropertyTag.getValue(_image.GetPropertyItem((int)PropertyTagId.ExifDTSubsec));
+                }
+                catch
+                {
+                    return null;
+                }
+            }
+            set
+            {
+                SetValue(value, (int)PropertyTagId.ExifDTSubsec);
+            }
+        }
+
+        public string ExifDTOrigSS
+        {
+            get
+            {
+                try
+                {
+                    return (string)PropertyTag.getValue(_image.GetPropertyItem((int)PropertyTagId.ExifDTOrigSS));
+                }
+                catch
+                {
+                    return null;
+                }
+            }
+            set
+            {
+                SetValue(value, (int)PropertyTagId.ExifDTOrigSS);
+            }
+        }
+
+        public string ExifDTDigSS
+        {
+            get
+            {
+                try
+                {
+                    return (string)PropertyTag.getValue(_image.GetPropertyItem((int)PropertyTagId.ExifDTDigSS));
+                }
+                catch
+                {
+                    return null;
+                }
+            }
+            set
+            {
+                SetValue(value, (int)PropertyTagId.ExifDTDigSS);
+            }
+        }
+
+        public string GpsLatitudeRef
+        {
+            get
+            {
+                try
+                {
+                    return (string)PropertyTag.getValue(_image.GetPropertyItem((int)PropertyTagId.GpsLatitudeRef));
+                }
+                catch
+                {
+                    return null;
+                }
+            }
+            set
+            {
+                SetValue(value, (int)PropertyTagId.GpsLatitudeRef);
+            }
+        }
+
+        public string GpsLongitudeRef
+        {
+            get
+            {
+                try
+                {
+                    return (string)PropertyTag.getValue(_image.GetPropertyItem((int)PropertyTagId.GpsLongitudeRef));
+                }
+                catch
+                {
+                    return null;
+                }
+            }
+            set
+            {
+                SetValue(value, (int)PropertyTagId.GpsLongitudeRef);
+            }
+        }
+
+        public string GpsGpsMeasureMode
+        {
+            get
+            {
+                try
+                {
+                    return (string)PropertyTag.getValue(_image.GetPropertyItem((int)PropertyTagId.GpsGpsMeasureMode));
+                }
+                catch
+                {
+                    return null;
+                }
+            }
+            set
+            {
+                SetValue(value, (int)PropertyTagId.GpsGpsMeasureMode);
+            }
+        }
+
+        public long? JPEGInterFormat
+        {
+            get
+            {
+                try
+                {
+                    return (byte)PropertyTag.getValue(_image.GetPropertyItem((int)PropertyTagId.JPEGInterFormat));
+                }
+                catch
+                {
+                    return null;
+                }
+            }
+            // set
+            //{
+            //     SetValue(value, (int)PropertyTagId.GpsGpsMeasureMode);
+            // }
+        }
+
+
         private Hashtable _propertyItems;
         ///<summary>
         /// Returns a Hashtable of all available Properties of a gieven Image. Keys of this Hashtable are
@@ -435,6 +655,12 @@ namespace MetadataLibrary.ImageInfo
             }
         }
 
+
+        /// <summary>
+        /// Устанавливает значения тега
+        /// </summary>
+        /// <param name="value">Строковое значение тега</param>
+        /// <param name="id">ID тега</param>
         public void SetValue(string value, int id)
         {
             PropertyItem pi; //получаем элемент
@@ -447,18 +673,21 @@ namespace MetadataLibrary.ImageInfo
                 pi = (PropertyItem)FormatterServices.GetUninitializedObject(typeof(PropertyItem)); //либо его нет и мы его создаем
                 pi.Type = PropertyTag.GetTypeFromId(id);
             }
-            System.Text.ASCIIEncoding encoding = new System.Text.ASCIIEncoding();
-           
-            char[] str= value.ToString().ToCharArray();
-            byte[] val = Encoding.ASCII.GetBytes(str);
-            //encoding.GetString(val, 0, val.Length);
 
-            pi.Value = val;
-            pi.Len = pi.Value.Length + 1;
+            //устанавливаем значение
+            byte[] val = Encoding.ASCII.GetBytes(value);
+            pi.Value = new byte[val.Length + 1];
+            pi.Len = val.Length + 1;
+            Array.Copy(val, pi.Value, val.Length);
             _image.SetPropertyItem(pi);//запись в image
+            //GDI+ это странная библиотека
+            //_image.Save(_imageFileName+".tmp");
+            //_image.Dispose();
+            //File.Delete(_imageFileName);
+            //File.Move(_imageFileName + ".tmp", _imageFileName);               
         }
 
-        public void SetValue(short value, int id)
+        public void SetValue(ushort? value, int id)
         {
             PropertyItem pi; //получаем элемент
             try
@@ -470,18 +699,54 @@ namespace MetadataLibrary.ImageInfo
                 pi = (PropertyItem)FormatterServices.GetUninitializedObject(typeof(PropertyItem)); //либо его нет и мы его создаем
                 pi.Type = PropertyTag.GetTypeFromId(id);
             }
-               //case PropertyTagType.Short:
-               //     ushort[] _resultUShort = new ushort[aPropertyItem.Len / (16 / 8)];
-               //     for (int i = 0; i < _resultUShort.Length; i++)
-               //         _resultUShort[i] = BitConverter.ToUInt16(aPropertyItem.Value, i * (16 / 8));
-               //     if (_resultUShort.Length == 1) return _resultUShort[0];
-               //     return (_resultUShort);
 
-            byte[] val= BitConverter.GetBytes(value);
 
-            pi.Value = val;
-            pi.Len = pi.Value.Length + 1;
+            //переделаем их ushort? в ushort
+            ushort myvalue = (ushort)(value != null ? value : 0);
+            //получаемм массив ьайт
+            var res = BitConverter.GetBytes(myvalue);
+
+            pi.Len = res.Length;
+            pi.Value = res;
             _image.SetPropertyItem(pi);//запись в image
         }
+
+        public void SetValue(DateTime? value, int id)
+        {
+            PropertyItem pi; //получаем элемент
+            try
+            {
+                pi = _image.GetPropertyItem(id); //элемент либо есть
+            }
+            catch
+            {
+                pi = (PropertyItem)FormatterServices.GetUninitializedObject(typeof(PropertyItem)); //либо его нет и мы его создаем
+                pi.Type = PropertyTag.GetTypeFromId(id);
+            }
+
+
+            ////переделаем их ushort? в ushort
+
+            DateTime myvalue = (DateTime)(value != null ? value : System.DateTime.Now);
+            //"2016:02:17 15:22:33" - как должно быть
+            string res = myvalue.Year + ":" + addSpace(myvalue.Month) + ":" + addSpace(myvalue.Day) + " " + addSpace(myvalue.Hour) + ":" + addSpace(myvalue.Minute) + ":" + addSpace(myvalue.Second);
+
+            SetValue(res, id);
+            ////получаемм массив ьайт
+            //var res = BitConverter.GetBytes(myvalue);
+
+            //pi.Len = res.Length;
+            //pi.Value = res;
+            //_image.SetPropertyItem(pi);//запись в image
+        }
+
+        private string addSpace(int dat)
+        {
+            var date = dat.ToString();
+            if (date.Length == 1)
+                return "0" + date;
+            return date;
+        }
+
     }
 }

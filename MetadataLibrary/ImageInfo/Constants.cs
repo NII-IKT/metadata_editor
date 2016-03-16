@@ -12,7 +12,7 @@ namespace MetadataLibrary.ImageInfo
 		///<summary>Dots Per Inch</summary>
 		dpi  			= 2,
 		///<summary>Centimeters Per Inch</summary>
-		dpcm 			=3
+		dpcm 			= 3
 	}
 	
 	///<summary>
@@ -95,7 +95,7 @@ namespace MetadataLibrary.ImageInfo
 	public enum PropertyTagType: short
 	{
 		///<summary>Specifies that the format is 4 bits per pixel, indexed.</summary>
-		PixelFormat4bppIndexed 					= 0,
+		PixelFormat4bppIndexed 	= 0,
 		///<summary>Specifies that the value data member is an array of bytes.</summary>
 		Byte 					= 1,
 		///<summary>Specifies that the value data member is a null-terminated ASCII string. If you set the type data member of a PropertyItem object to PropertyTagTypeASCII, you should set the length data member to the length of the string including the NULL terminator. For example, the string HELLO would have a length of 6.</summary>
