@@ -135,10 +135,50 @@ namespace MetadataLibrary.ImageInfo
         {
             switch (id)
             {
-                case 0x8298: return 2;
-                case 0x8827: return 3;
-                case 0x010F: return 2;
-                case 0x0110: return 2;
+                //string
+                case (int)MetadataLibrary.ImageInfo.PropertyTagId.ImageDescription: return 2;
+                case (int)MetadataLibrary.ImageInfo.PropertyTagId.EquipMake: return 2;
+                case (int)MetadataLibrary.ImageInfo.PropertyTagId.EquipModel: return 2;
+                case (int)MetadataLibrary.ImageInfo.PropertyTagId.SoftwareUsed: return 2;
+                case (int)MetadataLibrary.ImageInfo.PropertyTagId.DateTime: return 2;
+                case (int)MetadataLibrary.ImageInfo.PropertyTagId.Artist: return 2;
+                case (int)MetadataLibrary.ImageInfo.PropertyTagId.Copyright: return 2;
+                case (int)MetadataLibrary.ImageInfo.PropertyTagId.ExifDTOrig: return 2;
+                case (int)MetadataLibrary.ImageInfo.PropertyTagId.ExifDTDigitized: return 2;
+                case (int)MetadataLibrary.ImageInfo.PropertyTagId.ExifDTSubsec: return 2;
+                case (int)MetadataLibrary.ImageInfo.PropertyTagId.ExifDTOrigSS: return 2;
+                case (int)MetadataLibrary.ImageInfo.PropertyTagId.ExifDTDigSS: return 2;
+                //short
+                case (int)MetadataLibrary.ImageInfo.PropertyTagId.Orientation: return 3;
+                case (int)MetadataLibrary.ImageInfo.PropertyTagId.ResolutionUnit: return 3;
+                case (int)MetadataLibrary.ImageInfo.PropertyTagId.YCbCrPositioning: return 3;
+                case (int)MetadataLibrary.ImageInfo.PropertyTagId.ExifExposureProg: return 3;
+                case (int)MetadataLibrary.ImageInfo.PropertyTagId.ExifISOSpeed: return 3;
+                case (int)MetadataLibrary.ImageInfo.PropertyTagId.ExifMeteringMode: return 3;
+                case (int)MetadataLibrary.ImageInfo.PropertyTagId.ExifLightSource: return 3;
+                case (int)MetadataLibrary.ImageInfo.PropertyTagId.ExifFlash: return 3;
+                case (int)MetadataLibrary.ImageInfo.PropertyTagId.ExifColorSpace: return 3;
+                case (int)MetadataLibrary.ImageInfo.PropertyTagId.ExifPixXDim: return 3;
+                case (int)MetadataLibrary.ImageInfo.PropertyTagId.ExifPixYDim: return 3;
+                case (int)MetadataLibrary.ImageInfo.PropertyTagId.ExifSensingMethod: return 3;
+                case (int)MetadataLibrary.ImageInfo.PropertyTagId.ThumbnailCompression: return 3;
+                case (int)MetadataLibrary.ImageInfo.PropertyTagId.ThumbnailResolutionUnit: return 3;
+                case (int)MetadataLibrary.ImageInfo.PropertyTagId.ThumbnailYCbCrPositioning: return 3;
+                //long
+                case (int)MetadataLibrary.ImageInfo.PropertyTagId.JPEGInterFormat: return 4;
+                case (int)MetadataLibrary.ImageInfo.PropertyTagId.JPEGInterLength: return 4;
+                //rational
+                case (int)MetadataLibrary.ImageInfo.PropertyTagId.XResolution: return 5;
+                case (int)MetadataLibrary.ImageInfo.PropertyTagId.YResolution: return 5;
+                case (int)MetadataLibrary.ImageInfo.PropertyTagId.ExifExposureTime: return 5;
+                case (int)MetadataLibrary.ImageInfo.PropertyTagId.ExifFNumber: return 5;
+                case (int)MetadataLibrary.ImageInfo.PropertyTagId.ExifCompBPP: return 5;
+                case (int)MetadataLibrary.ImageInfo.PropertyTagId.ExifMaxAperture: return 5;
+                case (int)MetadataLibrary.ImageInfo.PropertyTagId.ExifFocalLength: return 5;
+                case (int)MetadataLibrary.ImageInfo.PropertyTagId.ThumbnailResolutionX: return 5;
+                case (int)MetadataLibrary.ImageInfo.PropertyTagId.ThumbnailResolutionY: return 5;
+
+
             }
             return 0;
         }

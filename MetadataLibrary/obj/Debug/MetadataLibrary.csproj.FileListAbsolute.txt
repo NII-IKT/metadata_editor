@@ -3,3 +3,8 @@ c:\users\user-1\documents\visual studio 2013\Projects\MetadataLibrary\MetadataLi
 c:\users\user-1\documents\visual studio 2013\Projects\MetadataLibrary\MetadataLibrary\obj\Debug\MetadataLibrary.dll
 c:\users\user-1\documents\visual studio 2013\Projects\MetadataLibrary\MetadataLibrary\obj\Debug\MetadataLibrary.pdb
 C:\Users\User-1\Documents\Visual Studio 2013\Projects\MetadataLibrary\MetadataLibrary\obj\Debug\MetadataLibrary.csprojResolveAssemblyReference.cache
+C:\Users\anton\Desktop\Евгену на сегодня\metadata_editor-master\MetadataLibrary\bin\Debug\MetadataLibrary.dll
+C:\Users\anton\Desktop\Евгену на сегодня\metadata_editor-master\MetadataLibrary\bin\Debug\MetadataLibrary.pdb
+C:\Users\anton\Desktop\Евгену на сегодня\metadata_editor-master\MetadataLibrary\obj\Debug\MetadataLibrary.csprojResolveAssemblyReference.cache
+C:\Users\anton\Desktop\Евгену на сегодня\metadata_editor-master\MetadataLibrary\obj\Debug\MetadataLibrary.dll
+C:\Users\anton\Desktop\Евгену на сегодня\metadata_editor-master\MetadataLibrary\obj\Debug\MetadataLibrary.pdb

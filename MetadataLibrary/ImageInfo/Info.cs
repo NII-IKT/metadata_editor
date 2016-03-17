@@ -64,6 +64,10 @@ namespace MetadataLibrary.ImageInfo
                     return null;
                 }
             }
+            set
+            {
+                SetValue(value, (int)PropertyTagId.ExifPixXDim);
+            }
         }
         ///<summary>
         /// Type is PropertyTagTypeShort or PropertyTagTypeLong
@@ -84,6 +88,10 @@ namespace MetadataLibrary.ImageInfo
                     return null;
                 }
             }
+            set
+            {
+                SetValue(value, (int)PropertyTagId.ExifPixYDim);
+            }
         }
 
         ///<summary>
@@ -102,6 +110,10 @@ namespace MetadataLibrary.ImageInfo
                     return null;
                 }
             }
+            set
+            {
+                SetValue(value, (int)PropertyTagId.XResolution);
+            }
         }
 
         ///<summary>
@@ -119,6 +131,10 @@ namespace MetadataLibrary.ImageInfo
                 {
                     return null;
                 }
+            }
+            set
+            {
+                SetValue(value, (int)PropertyTagId.YResolution);
             }
         }
 
@@ -139,6 +155,11 @@ namespace MetadataLibrary.ImageInfo
                     return null;
                 }
             }
+            set
+            {
+                SetValue((ushort)value, (int)PropertyTagId.YResolution);
+            }
+
         }
 
         ///<summary>
@@ -156,6 +177,10 @@ namespace MetadataLibrary.ImageInfo
                 {
                     return null;
                 }
+            }
+            set
+            {
+                SetValue(value, (int)PropertyTagId.ExifBrightness);
             }
         }
 
@@ -267,7 +292,7 @@ namespace MetadataLibrary.ImageInfo
         ///<summary>
         ///Date and time when the original image data was generated. For a DSC, the date and time when the picture was taken. 
         ///</summary>
-        public DateTime? DTOrig
+        public DateTime? ExifDTOrig
         {
             get
             {
@@ -292,7 +317,7 @@ namespace MetadataLibrary.ImageInfo
         ///<summary>
         ///Date and time when the image was stored as digital data. If, for example, an image was captured by DSC and at the same time the file was recorded, then DateTimeOriginal and DateTimeDigitized will have the same contents.
         ///</summary>
-        public DateTime? DTDigitized
+        public DateTime? ExifDTDigitized
         {
             get
             {
@@ -317,7 +342,7 @@ namespace MetadataLibrary.ImageInfo
         ///<summary>
         ///ISO speed and ISO latitude of the camera or input device as specified in ISO 12232.
         ///</summary>		
-        public ushort? ISOSpeed
+        public ushort? ExifISOSpeed
         {
             get
             {
@@ -352,6 +377,10 @@ namespace MetadataLibrary.ImageInfo
                     return null;
                 }
             }
+            set
+            {
+                SetValue((ushort)value, (int)PropertyTagId.Orientation);
+            }
         }
 
         ///<summary>
@@ -369,6 +398,10 @@ namespace MetadataLibrary.ImageInfo
                 {
                     return null;
                 }
+            }
+            set
+            {
+                SetValue(value, (int)PropertyTagId.ExifFocalLength);
             }
         }
 
@@ -388,12 +421,18 @@ namespace MetadataLibrary.ImageInfo
                     return null;
                 }
             }
+
+            set
+            {
+                SetValue(value, (int)PropertyTagId.ExifFNumber);
+            }
+
         }
 
         ///<summary>
         ///Class of the program used by the camera to set exposure when the picture is taken.
         ///</summary>						
-        public ExposureProg? ExposureProg
+        public ExposureProg? ExifExposureProg
         {
             get
             {
@@ -406,12 +445,16 @@ namespace MetadataLibrary.ImageInfo
                     return null;
                 }
             }
+            set
+            {
+                SetValue((ushort)value, (int)PropertyTagId.ExifExposureProg);
+            }
         }
 
         ///<summary>
         ///Metering mode.
         ///</summary>						
-        public MeteringMode? MeteringMode
+        public MeteringMode? ExifMeteringMode
         {
             get
             {
@@ -423,6 +466,10 @@ namespace MetadataLibrary.ImageInfo
                 {
                     return null;
                 }
+            }
+            set
+            {
+                SetValue((ushort)value, (int)PropertyTagId.ExifMeteringMode);
             }
         }
 
@@ -613,12 +660,353 @@ namespace MetadataLibrary.ImageInfo
                     return null;
                 }
             }
-            // set
-            //{
-            //     SetValue(value, (int)PropertyTagId.GpsGpsMeasureMode);
-            // }
+            set
+            {
+                SetValue(value, (int)PropertyTagId.JPEGInterFormat);
+            }
         }
 
+        public long? JPEGInterLength
+        {
+            get
+            {
+                try
+                {
+                    return (byte)PropertyTag.getValue(_image.GetPropertyItem((int)PropertyTagId.JPEGInterLength));
+                }
+                catch
+                {
+                    return null;
+                }
+            }
+            set
+            {
+                SetValue(value, (int)PropertyTagId.JPEGInterLength);
+            }
+        }
+
+        public ushort? YCbCrPositioning
+        {
+            get
+            {
+                try
+                {
+                    return (byte)PropertyTag.getValue(_image.GetPropertyItem((int)PropertyTagId.YCbCrPositioning));
+                }
+                catch
+                {
+                    return null;
+                }
+            }
+            set
+            {
+                SetValue(value, (int)PropertyTagId.YCbCrPositioning);
+            }
+        }
+
+        public ushort? ExifLightSource
+        {
+            get
+            {
+                try
+                {
+                    return (byte)PropertyTag.getValue(_image.GetPropertyItem((int)PropertyTagId.ExifLightSource));
+                }
+                catch
+                {
+                    return null;
+                }
+            }
+            set
+            {
+                SetValue(value, (int)PropertyTagId.ExifLightSource);
+            }
+        }
+
+        public ushort? ExifFlash
+        {
+            get
+            {
+                try
+                {
+                    return (byte)PropertyTag.getValue(_image.GetPropertyItem((int)PropertyTagId.ExifFlash));
+                }
+                catch
+                {
+                    return null;
+                }
+            }
+            set
+            {
+                SetValue(value, (int)PropertyTagId.ExifFlash);
+            }
+        }
+
+        public ushort? ExifColorSpace
+        {
+            get
+            {
+                try
+                {
+                    return (byte)PropertyTag.getValue(_image.GetPropertyItem((int)PropertyTagId.ExifColorSpace));
+                }
+                catch
+                {
+                    return null;
+                }
+            }
+            set
+            {
+                SetValue(value, (int)PropertyTagId.ExifColorSpace);
+            }
+        }
+
+        public ushort? ExifPixXDim
+        {
+            get
+            {
+                try
+                {
+                    return (byte)PropertyTag.getValue(_image.GetPropertyItem((int)PropertyTagId.ExifPixXDim));
+                }
+                catch
+                {
+                    return null;
+                }
+            }
+            set
+            {
+                SetValue(value, (int)PropertyTagId.ExifPixXDim);
+            }
+        }
+
+        public ushort? ExifPixYDim
+        {
+            get
+            {
+                try
+                {
+                    return (byte)PropertyTag.getValue(_image.GetPropertyItem((int)PropertyTagId.ExifPixYDim));
+                }
+                catch
+                {
+                    return null;
+                }
+            }
+            set
+            {
+                SetValue(value, (int)PropertyTagId.ExifPixYDim);
+            }
+        }
+
+        public ushort? ExifSensingMethod
+        {
+            get
+            {
+                try
+                {
+                    return (byte)PropertyTag.getValue(_image.GetPropertyItem((int)PropertyTagId.ExifSensingMethod));
+                }
+                catch
+                {
+                    return null;
+                }
+            }
+            set
+            {
+                SetValue(value, (int)PropertyTagId.ExifSensingMethod);
+            }
+        }
+
+        public ushort? ThumbnailCompression
+        {
+            get
+            {
+                try
+                {
+                    return (byte)PropertyTag.getValue(_image.GetPropertyItem((int)PropertyTagId.ThumbnailCompression));
+                }
+                catch
+                {
+                    return null;
+                }
+            }
+            set
+            {
+                SetValue(value, (int)PropertyTagId.ThumbnailCompression);
+            }
+        }
+
+        public ushort? ThumbnailResolutionUnit
+        {
+            get
+            {
+                try
+                {
+                    return (byte)PropertyTag.getValue(_image.GetPropertyItem((int)PropertyTagId.ThumbnailResolutionUnit));
+                }
+                catch
+                {
+                    return null;
+                }
+            }
+            set
+            {
+                SetValue(value, (int)PropertyTagId.ThumbnailResolutionUnit);
+            }
+        }
+
+        public ushort? ThumbnailYCbCrPositioning
+        {
+            get
+            {
+                try
+                {
+                    return (byte)PropertyTag.getValue(_image.GetPropertyItem((int)PropertyTagId.ThumbnailYCbCrPositioning));
+                }
+                catch
+                {
+                    return null;
+                }
+            }
+            set
+            {
+                SetValue(value, (int)PropertyTagId.ThumbnailYCbCrPositioning);
+            }
+        }
+
+        public Fraction ExifExposureTime
+        {
+            get
+            {
+                try
+                {
+                    return (Fraction)PropertyTag.getValue(_image.GetPropertyItem((int)PropertyTagId.ExifExposureTime));
+                }
+                catch
+                {
+                    return null;
+                }
+            }
+            set
+            {
+                SetValue(value, (int)PropertyTagId.ExifExposureTime);
+            }
+        }
+
+        public Fraction ExifFNumber
+        {
+            get
+            {
+                try
+                {
+                    return (Fraction)PropertyTag.getValue(_image.GetPropertyItem((int)PropertyTagId.ExifFNumber));
+                }
+                catch
+                {
+                    return null;
+                }
+            }
+            set
+            {
+                SetValue(value, (int)PropertyTagId.ExifFNumber);
+            }
+        }
+
+        public Fraction ExifCompBPP
+        {
+            get
+            {
+                try
+                {
+                    return (Fraction)PropertyTag.getValue(_image.GetPropertyItem((int)PropertyTagId.ExifCompBPP));
+                }
+                catch
+                {
+                    return null;
+                }
+            }
+            set
+            {
+                SetValue(value, (int)PropertyTagId.ExifCompBPP);
+            }
+        }
+
+        public Fraction ExifMaxAperture
+        {
+            get
+            {
+                try
+                {
+                    return (Fraction)PropertyTag.getValue(_image.GetPropertyItem((int)PropertyTagId.ExifMaxAperture));
+                }
+                catch
+                {
+                    return null;
+                }
+            }
+            set
+            {
+                SetValue(value, (int)PropertyTagId.ExifMaxAperture);
+            }
+        }
+
+        public Fraction ExifFocalLength
+        {
+            get
+            {
+                try
+                {
+                    return (Fraction)PropertyTag.getValue(_image.GetPropertyItem((int)PropertyTagId.ExifFocalLength));
+                }
+                catch
+                {
+                    return null;
+                }
+            }
+            set
+            {
+                SetValue(value, (int)PropertyTagId.ExifFocalLength);
+            }
+        }
+
+        public Fraction ThumbnailResolutionX
+        {
+            get
+            {
+                try
+                {
+                    return (Fraction)PropertyTag.getValue(_image.GetPropertyItem((int)PropertyTagId.ThumbnailResolutionX));
+                }
+                catch
+                {
+                    return null;
+                }
+            }
+            set
+            {
+                SetValue(value, (int)PropertyTagId.ThumbnailResolutionX);
+            }
+        }
+
+        public Fraction ThumbnailResolutionY
+        {
+            get
+            {
+                try
+                {
+                    return (Fraction)PropertyTag.getValue(_image.GetPropertyItem((int)PropertyTagId.ThumbnailResolutionY));
+                }
+                catch
+                {
+                    return null;
+                }
+            }
+            set
+            {
+                SetValue(value, (int)PropertyTagId.ThumbnailResolutionY);
+            }
+        }
 
         private Hashtable _propertyItems;
         ///<summary>
@@ -671,6 +1059,7 @@ namespace MetadataLibrary.ImageInfo
             catch
             {
                 pi = (PropertyItem)FormatterServices.GetUninitializedObject(typeof(PropertyItem)); //либо его нет и мы его создаем
+                pi.Id = id;
                 pi.Type = PropertyTag.GetTypeFromId(id);
             }
 
@@ -738,6 +1127,85 @@ namespace MetadataLibrary.ImageInfo
             //pi.Len = res.Length;
             //pi.Value = res;
             //_image.SetPropertyItem(pi);//запись в image
+        }
+
+        public void SetValue(uint? value, int id)
+        {
+            PropertyItem pi; //получаем элемент
+            try
+            {
+                pi = _image.GetPropertyItem(id); //элемент либо есть
+            }
+            catch
+            {
+                pi = (PropertyItem)FormatterServices.GetUninitializedObject(typeof(PropertyItem)); //либо его нет и мы его создаем
+                pi.Type = PropertyTag.GetTypeFromId(id);
+            }
+
+
+            //переделаем их ushort? в ushort
+            uint myvalue = (uint)(value != null ? value : 0);
+            //получаемм массив ьайт
+            var res = BitConverter.GetBytes(myvalue);
+
+            pi.Len = res.Length;
+            pi.Value = res;
+            _image.SetPropertyItem(pi);//запись в image
+        }
+
+        public void SetValue(long? value, int id)
+        {
+            PropertyItem pi; //получаем элемент
+            try
+            {
+                pi = _image.GetPropertyItem(id); //элемент либо есть
+            }
+            catch
+            {
+                pi = (PropertyItem)FormatterServices.GetUninitializedObject(typeof(PropertyItem)); //либо его нет и мы его создаем
+                pi.Type = PropertyTag.GetTypeFromId(id);
+            }
+
+
+            //переделаем их ushort? в ushort
+            long myvalue = (long)(value != null ? value : 0);
+            //получаемм массив ьайт
+            var res = BitConverter.GetBytes(myvalue);
+
+            pi.Len = res.Length;
+            pi.Value = res;
+            _image.SetPropertyItem(pi);//запись в image
+        }
+
+        public void SetValue(Fraction value, int id)
+        {
+            PropertyItem pi; //получаем элемент
+            try
+            {
+                pi = _image.GetPropertyItem(id); //элемент либо есть
+            }
+            catch
+            {
+                pi = (PropertyItem)FormatterServices.GetUninitializedObject(typeof(PropertyItem)); //либо его нет и мы его создаем
+                pi.Type = PropertyTag.GetTypeFromId(id);
+            }
+
+
+
+            //получаемм массив ьайт
+            var num = BitConverter.GetBytes(value.Numerator);
+            var den = BitConverter.GetBytes(value.Denumerator);
+
+            int count = Math.Max(num.Length, den.Length);
+            count = ((count % 4) + 1) * 4;
+
+            pi.Len = count * 2;
+            byte[] res = new byte[pi.Len];
+            Array.Copy(num, 0, res, 0, count);
+            Array.Copy(den, 0, res, count, count);
+            pi.Value = res;
+
+            _image.SetPropertyItem(pi);//запись в image
         }
 
         private string addSpace(int dat)
